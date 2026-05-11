@@ -18,11 +18,28 @@ href="{{ url_for('static', filename='css/style.css') }}">
     
     <h3>Recommended Foods</h3>
 
-<ul>
-    {% for food in foods %}
-        <li>{{ food }}</li>
-    {% endfor %}
-</ul>
+<h3>Recommended Foods</h3>
+
+{% for food in foods %}
+
+<div style="
+background:white;
+padding:15px;
+margin:15px;
+border-radius:10px;
+">
+
+    <h4>{{ food.Food }}</h4>
+
+    <p>Calories: {{ food.Calories }}</p>
+
+    <p>Protein: {{ food.Protein }} g</p>
+
+    <p>Sustainability: {{ food.Sustainability }}</p>
+
+</div>
+
+{% endfor %}
 
     <a href="/">Go Back</a>
 

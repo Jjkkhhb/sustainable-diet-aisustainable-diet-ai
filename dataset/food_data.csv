@@ -1,0 +1,11 @@
+Food,Category,Calories,Protein,Sustainability
+Oats,Weight Loss,150,5,High
+Green Salad,Weight Loss,100,3,High
+Soup,Weight Loss,120,4,High
+Grilled Chicken,Weight Loss,220,25,Medium
+Brown Rice,Normal,210,4,Medium
+Eggs,Normal,150,12,Medium
+Fruits,Normal,90,1,High
+Banana Smoothie,Weight Gain,300,8,Medium
+Peanut Butter Sandwich,Weight Gain,350,10,Low
+Rice and Chicken,Weight Gain,450,30,Medium

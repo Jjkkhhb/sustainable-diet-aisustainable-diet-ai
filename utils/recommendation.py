@@ -1,25 +1,20 @@
+import pandas as pd
+
 def food_recommendation(bmi):
 
+    data = pd.read_csv("dataset/food_data.csv")
+
     if bmi < 18.5:
-        return [
-            "Banana Smoothie",
-            "Peanut Butter Sandwich",
-            "Oats with Milk",
-            "Rice and Chicken"
-        ]
+        category = "Weight Gain"
 
     elif bmi < 25:
-        return [
-            "Vegetable Salad",
-            "Brown Rice",
-            "Eggs",
-            "Fruits"
-        ]
+        category = "Normal"
 
     else:
-        return [
-            "Green Salad",
-            "Grilled Chicken",
-            "Soup",
-            "Oats"
-        ]
+        category = "Weight Loss"
+
+    result = data[data["Category"] == category]
+
+    foods = result.to_dict(orient="records")
+
+    return foods
