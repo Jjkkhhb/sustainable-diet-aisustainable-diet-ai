@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Food Recognition</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<h1>Food Image Recognition</h1>
+
+<form action="/food-recognition"
+method="POST"
+enctype="multipart/form-data">
+
+    <input type="file"
+    name="image"
+    required>
+
+    <br><br>
+
+    <button type="submit">
+        Upload Image
+    </button>
+
+</form>
+
+{% if prediction %}
+
+<h3>Detected Food:</h3>
+
+<p>{{ prediction }}</p>
+
+<img src="{{ image_path }}"
+width="300">
+
+{% endif %}
+
+</body>
+
+</html>

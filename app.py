@@ -5,6 +5,7 @@ from utils.sustainability import sustainability_score
 import matplotlib.pyplot as plt
 import os
 import sqlite3
+from PIL import Image
 
 app = Flask(__name__)
 
@@ -102,6 +103,48 @@ def chatbot():
         'chatbot.html',
         response=response
     )
+@app.route('/food-recognition')
+def food_page():
+
+    return render_template(
+        'food_recognition.html'
+    )
+@app.route('/food-recognition',
+methods=['POST'])
+
+def food_recognition():
+
+    image = request.files['image']
+
+    image_path = "static/uploads/" + image.filename
+
+    image.save(image_path)
+
+    filename = image.filename.lower()
+
+    # Simple AI Logic
+
+    if "apple" in filename:
+
+        prediction = "Apple"
+
+    elif "banana" in filename:
+
+        prediction = "Banana"
+
+    elif "salad" in filename:
+
+        prediction = "Salad"
+
+    else:
+
+        prediction = "Healthy Food"
+
+    return render_template(
+        'food_recognition.html',
+        prediction=prediction,
+        image_path=image_path
+    )        
 
 @app.route('/predict', methods=['POST'])
 def predict():
