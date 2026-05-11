@@ -114,7 +114,11 @@ def food_recognition():
 
     image = request.files['image']
 
-    image_path = "static/uploads/" + image.filename
+    image_path = os.path.join(
+    "static",
+    "uploads",
+    image.filename
+)
 
     image.save(image_path)
 
@@ -169,7 +173,11 @@ def predict():
 
     plt.title("Calories Analysis")
 
-    graph_path = "static/images/chart.png"
+    graph_path = os.path.join(
+    "static",
+    "images",
+    "chart.png"
+)
 
     plt.savefig(graph_path)
 

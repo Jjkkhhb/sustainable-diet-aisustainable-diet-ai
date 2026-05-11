@@ -1,14 +1,43 @@
 import pandas as pd
 import pickle
+import os
 
-# Load trained model
+# Base project directory
 
-with open("models/model.pkl", "rb") as file:
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
+)
+
+# Dataset path
+
+csv_path = os.path.join(
+    BASE_DIR,
+    "dataset",
+    "food_data.csv"
+)
+
+# Model path
+
+model_path = os.path.join(
+    BASE_DIR,
+    "models",
+    "model.pkl"
+)
+
+# Load dataset
+
+data = pd.read_csv(csv_path)
+
+# Load model
+
+with open(model_path, "rb") as file:
     model = pickle.load(file)
 
-def food_recommendation(bmi):
+# Recommendation function
 
-    data = pd.read_csv("dataset/food_data.csv")
+def food_recommendation(bmi):
 
     prediction = model.predict([[bmi]])
 
