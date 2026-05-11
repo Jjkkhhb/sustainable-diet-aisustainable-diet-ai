@@ -12,6 +12,17 @@ href="{{ url_for('static', filename='css/style.css') }}">
     <h1>Your BMI Result</h1>
 
     <h2>{{ bmi }}</h2>
+    <h3>Sustainability Score</h3>
+
+<p>{{ score }}</p>
+    
+    <h3>Recommended Foods</h3>
+
+<ul>
+    {% for food in foods %}
+        <li>{{ food }}</li>
+    {% endfor %}
+</ul>
 
     <a href="/">Go Back</a>
 
